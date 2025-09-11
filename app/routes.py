@@ -2,6 +2,16 @@ from flask import request, jsonify
 from app.models import db, Investment
 
 def register_routes(app):
+    @app.route("/investments", methods=["GET"])
+    def get_investments():
+        investments = Investment.query.all()
+        return jsonify([i.to_dict() for i in investments])
+
+    @app.route("/investments/<int:id>", methods=["GET"])
+    def get_investment(id):
+        investment = Investment.query.get_or_404(id)
+        return jsonify(investment.to_dict())
+
     @app.route("/investments", methods=["POST"])
     def create_investment():
         data = request.get_json()
@@ -16,16 +26,6 @@ def register_routes(app):
         db.session.add(investment)
         db.session.commit()
         return jsonify(investment.to_dict()), 201
-
-    @app.route("/investments", methods=["GET"])
-    def get_investments():
-        investments = Investment.query.all()
-        return jsonify([i.to_dict() for i in investments])
-
-    @app.route("/investments/<int:id>", methods=["GET"])
-    def get_investment(id):
-        investment = Investment.query.get_or_404(id)
-        return jsonify(investment.to_dict())
 
     @app.route("/investments/<int:id>", methods=["PUT"])
     def update_investment(id):

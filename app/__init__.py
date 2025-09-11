@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_cors import CORS
 from config import Config
 
 db = SQLAlchemy()
@@ -12,8 +13,10 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
+    CORS(app)  # Enable CORS for all routes
 
-    from app.app import register_routes
+    # Import routes here to avoid circular imports
+    from app.routes import register_routes
     register_routes(app)
 
     return app
