@@ -1,42 +1,41 @@
-# Digital Gold Investment Tracker
+# Portfolio Manage Dashboard
 
 ## Project Overview
-Digital Gold Investment Tracker is a full-stack web application that allows users to track, manage, and analyze their digital gold investments. It includes features such as user authentication, investment CRUD operations, search/filter functionality, and investment distribution visualization with a pie chart.
+Portfolio Manage Dashboard is a full-stack web application designed to help multiple users track, manage, and analyze their investment portfolios efficiently. Each user can securely manage their own investment data, perform CRUD operations, and view visual summaries of their portfolios through dynamic charts.
 
 ## Features
-- User Signup, Login, and Logout with token-based authentication.
-- User-specific investment management (Create, Read, Update, Delete).
+- Multi-user authentication system with signup, login, and logout.
+- User-specific portfolio management with Create, Read, Update, and Delete (CRUD) operations on investments.
 - Search and filter investments by name.
-- Investment distribution visualization using Pie Chart (powered by Recharts).
-- Responsive and modern User Interface designed using TailwindCSS.
-- Error handling and validation on both frontend and backend.
+- Interactive portfolio distribution visualization via Pie Charts (Recharts).
+- Modern, responsive UI developed using React and TailwindCSS.
+- Basic validation and error handling on both frontend and backend.
 
 ## Technology Stack
-- Backend: FastAPI (Python) with in-memory storage for demonstration.
-- Frontend: React.js with TailwindCSS for styling.
-- Charting Library: Recharts.
-- Development Servers: Uvicorn for backend, Vite for frontend.
+- Backend: Python FastAPI with in-memory storage (for demonstration).
+- Frontend: React.js with TailwindCSS.
+- Charting: Recharts library.
+- Servers: Uvicorn for backend, Vite for frontend.
 
 ## Folder Structure
 
-
-digital-gold-project/
+portfolio-manage-dashboard/
 ├── backend/
-│   ├── main.py              # FastAPI backend application and endpoints
-│   ├── requirements.txt     # Python dependencies
+│   ├── main.py                 # FastAPI backend app and endpoints
+│   ├── requirements.txt        # Python dependencies
 │   └── ...
 ├── frontend/
 │   ├── src/
-│   │   ├── api.js           # API utility functions
-│   │   ├── App.jsx          # Main React component
-│   │   ├── index.css        # TailwindCSS base imports
-│   │   ├── main.jsx         # React app entry point
-│   │   └── components/      # Reusable React UI components
-│   ├── package.json         # Frontend npm configuration
-│   ├── tailwind.config.js   # TailwindCSS configuration
-│   ├── postcss.config.js    # PostCSS config for TailwindCSS
-│   └── README.md            # Frontend specific documentation (optional)
-└── README.md                # Project overview and setup instructions (this file)
+│   │   ├── api.js              # API utility functions
+│   │   ├── App.jsx             # Main React component
+│   │   ├── index.css           # Tailwind base CSS imports
+│   │   ├── main.jsx            # React app entry point
+│   │   └── components/         # React reusable components
+│   ├── package.json            # Frontend npm configuration
+│   ├── tailwind.config.js      # Tailwind config
+│   ├── postcss.config.js       # PostCSS config for Tailwind
+│   └── README.md               # Frontend-specific documentation (optional)
+└── README.md                   # This overall project documentation
 
 
 ## Getting Started
@@ -46,8 +45,8 @@ digital-gold-project/
 1. Create and activate a Python virtual environment:
    
    python -m venv venv
-   source venv/bin/activate  # For Linux/macOS
-   .\venv\Scripts\activate   # For Windows PowerShell
+   source venv/bin/activate  # Linux/macOS
+   .\venv\Scripts\activate   # Windows PowerShell
    
 
 2. Install backend dependencies:
@@ -55,14 +54,14 @@ digital-gold-project/
    pip install -r backend/requirements.txt
    
 
-3. Start the backend server:
+3. Run the backend server:
    
    uvicorn backend.main:app --reload
    
 
 ### Frontend Setup
 
-1. Navigate to the frontend directory:
+1. Change to the frontend directory:
    
    cd frontend
    
@@ -72,44 +71,44 @@ digital-gold-project/
    npm install
    
 
-3. Run the frontend development server:
+3. Start the frontend server:
    
    npm run dev
    
 
-4. Open your browser and visit:
+4. Open your browser at:
    
    http://localhost:5173
    
 
 ## Usage
 
-- First, sign up with a new account.
-- Then log in using your credentials.
-- Add, edit, or delete your investments.
-- Use the search bar to filter investments.
-- View the pie chart for investment distribution.
-- Log out when done.
+- Sign up for a new user account.
+- Log in using your credentials.
+- Add, edit, delete your portfolio investments.
+- Use the search box to find investments quickly.
+- View your portfolio investment distribution on the pie chart.
+- Log out once finished.
 
 ## Troubleshooting
 
-- **401 Unauthorized Error:**  
-  After restarting the backend server, you need to sign up and log in again because existing tokens become invalid.
+- Receiving **401 Unauthorized** error?  
+  After restarting the backend, re-register and log in as tokens do not persist in-memory.
 
-- **TailwindCSS styles not applying:**  
-  Make sure your `index.css` contains Tailwind directives, restart the frontend dev server, and clear your browser cache.
+- TailwindCSS styles not showing?  
+  Verify Tailwind CSS imports, restart frontend server, and clear browser cache.
 
-- **npm run dev error (ENOENT):**  
-  Make sure you run commands inside the frontend folder where `package.json` is located.
+- Errors running `npm run dev`?  
+  Ensure you run commands in the correct frontend directory where `package.json` exists.
 
-## Future Improvements
+## Future Enhancements
 
-- Add persistent database support (PostgreSQL, MySQL)
-- Implement password hashing and more secure JWT tokens.
-- User profile management and password reset features.
-- Export and import investments as CSV files.
-- Pagination or infinite scrolling for large investment lists.
-- Enhanced responsive design and UI improvements for mobile.
+- Persistent database integration (PostgreSQL, MySQL)
+- Secure password hashing and JWT authentication
+- User profile page and password recovery
+- Export/import investments in CSV format
+- Pagination or infinite scroll for large portfolios
+- Fully responsive and mobile-friendly UI enhancements  
 
 ## License
 
@@ -117,5 +116,5 @@ MIT License
 
 ---
 
-Thank you for using the Digital Gold Investment Tracker!  
-For questions, issues, or contributions, please open an issue or pull request on this repository.
+Thank you for using Portfolio Manage Dashboard!  
+Feel free to open issues or contribute via pull requests.
